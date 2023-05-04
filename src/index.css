@@ -8,7 +8,7 @@ body, button, input, select, textarea {
     font-size: 1rem;
     line-height: 1.5;
     padding: 0;
-    margin: 0;
+    margin: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,11 +44,11 @@ code {
 	font-family: Menlo;
 	font-size: inherit;
 	color: inherit;
-	background: none;
+	background: rgb(159, 87, 226);
 	cursor: pointer;
-	padding: 25px 80px;
+	padding: 15px 20px;
 	display: inline-block;
-	margin: 15px 30px;
+	margin: 5px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
@@ -116,16 +116,19 @@ code {
 
 /* Button 2 */
 .btn-2 {
-	background: #2ecc71;
+	background: #41a169;
 	color: #fff;
+	display: flex;
+	justify-content: center;
+
 }
 
 .btn-2:hover {
-	background: #27ae60;
+	background: #3bc976;
 }
 
 .btn-2:active {
-	background: #27ae60;
+	background: #2057cf;
 	top: 2px;
 }
 
@@ -135,7 +138,7 @@ code {
 	left: 0;
 	top: 0;
 	line-height: 3;
-	font-size: 140%;
+	font-size: 100%;
 	width: 60px;
 }
 
@@ -193,4 +196,45 @@ code {
 
 .icon-send:before {
 	content: "🔓";
+}
+
+
+.games {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.game {
+    width: 250px;
+    background-color: rgb(114, 219, 235);
+    border: 2px dotted rgb(216, 51, 147);
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+}
+
+.game_footer {
+    margin: 1rem 0 0.25rem 0;
+    font-style: oblique;
+}
+
+.game_header {
+    font-size: larger;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.events {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.event {
+    background-color: rgb(232, 177, 234);
+    border: 1px dotted rgb(74, 198, 21);
+    padding: 0.7rem;
+    margin: 0.5rem 0;
 }

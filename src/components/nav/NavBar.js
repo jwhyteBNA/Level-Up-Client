@@ -6,13 +6,17 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                Navigation link
+            <Link className="nav-link" to="/">LevelUp</Link>
             </li>
             <li className="navbar__item">
-                Navigation link
+            <Link className="nav-link" to="/games">Games</Link>
+                
             </li>
             <li className="navbar__item">
-                Navigation link
+            <Link className="nav-link" to="/events">Events</Link>
+            </li>
+            <li className="navbar__item">
+                Gamers
             </li>
             {
                 (localStorage.getItem("lu_token") !== null) ?
