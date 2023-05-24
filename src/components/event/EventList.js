@@ -46,7 +46,7 @@ export const EventList = (props) => {
           return (
             <section key={`event--${event.id}`} className="event">
               <div className="event__title">
-                {event.description} by {event.organizer}
+                {event.description} by {event.organizer.user.username}
               </div>
               <div className="event__date">Date: {event.date}</div>
               <div className="event__time">Time: {event.time}</div>
