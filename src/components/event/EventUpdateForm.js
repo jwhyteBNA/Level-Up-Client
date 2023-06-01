@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { getGames } from '../../managers/GameManager.js'
-import { updateSingleEvent, getGamers, updateEvent } from "../../managers/EventManager.js"
+import { getGamers, updateEvent, getEventDetails } from "../../managers/EventManager.js"
 
 
 export const EventUpdateForm = () => {
@@ -14,9 +14,25 @@ export const EventUpdateForm = () => {
         description: "",
         date: "",
         time: "",
-        game: "",
-        organizer: ""
+        game: 0,
+        organizer: 0
     })
+
+    useEffect(
+        () => {
+            getEventDetails(eventId)
+                .then((data) => {
+                    const eventObject = data
+                    eventObject.description = data.description
+                    eventObject.date = data.date
+                    eventObject.time = data.time
+                    eventObject.game = data.game.id
+                    eventObject.organizer = data.organizer.id
+                    updateCurrentEvent(eventObject)
+                })
+        },
+        [eventId]
+    )
 
     useEffect(() => {
     // TODO: Get the games, then set the state
@@ -32,13 +48,13 @@ export const EventUpdateForm = () => {
     
         }, [])
 
-    useEffect(() => {
-        updateSingleEvent(eventId)
-        .then((data) => {
-            const singleEvent = data[0];
-            updateCurrentEvent(singleEvent);
-        })
-    }, [eventId])
+    // useEffect(() => {
+    //     getEventDetails(eventId)
+    //     .then((data) => {
+    //         const singleEvent = data[0];
+    //         updateCurrentEvent(singleEvent);
+    //     })
+    // }, [eventId])
 
     const changeEventState = (domEvent) => {
         const copy = {...currentEventProfile}

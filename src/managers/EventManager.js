@@ -17,6 +17,15 @@ export const createGameEvent = (event) => {
   }).then((res) => res.json());
 };
 
+export const getEventDetails = (eventId) => {
+  return fetch(`http://localhost:8000/events/${eventId}`, {
+      headers:{
+          "Authorization": `Token ${localStorage.getItem("lu_token")}`
+      }
+  })
+      .then(response => response.json())
+}
+
 export const getGamers = () => {
   return fetch("http://localhost:8000/gamers", {
     headers: {
